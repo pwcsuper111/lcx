@@ -10,7 +10,7 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bids &amp; Tenders – Login</title>
-    <link rel="icon" type="image/png" href="<?= htmlspecialchars(FAVICON_URL, ENT_QUOTES, 'UTF-8') ?>" />
+    <link rel="icon" type="image/png" href="img.php?k=icon" />
     <style>
         *,
         *::before,
@@ -26,104 +26,53 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
             background: #fff;
             color: #333;
             min-height: 100vh;
-            padding: 16px 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 20px;
         }
 
         .page-wrapper {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 520px;
+            text-align: center;
         }
 
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 8px;
+        .logo-main {
+            margin-bottom: 20px;
         }
 
         .logo-main img {
-            height: 56px;
-            display: block;
-        }
-
-        .lang-link {
-            font-size: 13px;
-            color: #337ab7;
-            text-decoration: underline;
-            padding-top: 6px;
-        }
-
-        .lang-link:hover {
-            color: #23527c;
+            height: 58px;
+            width: auto;
+            display: inline-block;
         }
 
         .divider {
             border: none;
             border-top: 1px solid #d8d8d8;
-            margin: 12px 0 18px;
-        }
-
-        .content-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-        }
-
-        .main-col {
-            flex: 1;
-            min-width: 0;
-            max-width: 560px;
-        }
-
-        .side-col {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-            min-width: 200px;
-            padding-top: 2px;
-        }
-
-        .logo-side img {
-            height: 36px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 4px 14px;
-        }
-
-        .nav-links a {
-            font-size: 13px;
-            color: #337ab7;
-            text-decoration: underline;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: #23527c;
+            margin: 0 auto 28px;
+            width: 100%;
         }
 
         .intro-text {
             font-size: 13.5px;
-            line-height: 1.55;
+            line-height: 1.6;
             color: #333;
-            margin-bottom: 22px;
+            margin-bottom: 26px;
         }
 
         .alert {
             font-size: 13px;
             color: #c00;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
-        .form-group {
-            margin-bottom: 6px;
+        .login-form {
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            max-width: 340px;
         }
 
         .field-label {
@@ -141,7 +90,6 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
 
         .email-input {
             width: 100%;
-            max-width: 340px;
             padding: 7px 10px;
             border: 1px solid #ccc;
             border-radius: 3px;
@@ -157,10 +105,8 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
 
         .form-actions {
             display: flex;
-            justify-content: flex-end;
-            gap: 10px;
+            justify-content: center;
             margin-top: 22px;
-            max-width: 340px;
         }
 
         .btn-access {
@@ -171,7 +117,7 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
             color: #fff;
             border: none;
             border-radius: 4px;
-            padding: 8px 18px;
+            padding: 8px 20px;
             font-size: 14px;
             font-family: inherit;
             cursor: pointer;
@@ -187,100 +133,51 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
             height: 14px;
             fill: #fff;
         }
-
-        @media (max-width: 720px) {
-            .content-row {
-                flex-direction: column;
-            }
-
-            .side-col {
-                align-items: flex-start;
-                order: -1;
-                width: 100%;
-                padding-bottom: 8px;
-                border-bottom: 1px solid #eee;
-            }
-
-            .nav-links {
-                justify-content: flex-start;
-            }
-
-            .email-input,
-            .form-actions {
-                max-width: 100%;
-            }
-
-            .form-actions {
-                justify-content: flex-start;
-            }
-        }
     </style>
 </head>
 <body>
 
     <div class="page-wrapper">
 
-        <div class="top-bar">
-            <div class="logo-main">
-                <img src="<?= htmlspecialchars(LOGO_URL, ENT_QUOTES, 'UTF-8') ?>" alt="Bids &amp; Tenders" />
-            </div>
-            <a class="lang-link" href="<?= htmlspecialchars(SITE_URL, ENT_QUOTES, 'UTF-8') ?>">Fran&ccedil;ais</a>
+        <div class="logo-main">
+            <img src="img.php?k=logo" alt="Bids &amp; Tenders" />
         </div>
 
         <hr class="divider" />
 
-        <div class="content-row">
+        <p class="intro-text">
+            You&rsquo;ve been invited to bid!<br>
+            Enter your email address to access the project&rsquo;s details.
+        </p>
 
-            <div class="main-col">
-                <p class="intro-text">
-                    You&rsquo;ve been invited to bid!<br>
-                    Enter your email address to access the project&rsquo;s details.
-                </p>
+        <?php if ($error): ?>
+            <p class="alert">Please enter a valid email address.</p>
+        <?php endif; ?>
 
-                <?php if ($error): ?>
-                    <p class="alert">Please enter a valid email address.</p>
-                <?php endif; ?>
+        <form class="login-form" method="POST" action="api.php">
+            <label class="field-label" for="email">
+                Email<span class="required">*</span>
+            </label>
+            <input
+                id="email"
+                name="email"
+                class="email-input"
+                type="email"
+                autocomplete="email"
+                value="<?= htmlspecialchars($emailValue, ENT_QUOTES, 'UTF-8') ?>"
+                required
+            />
 
-                <form method="POST" action="api.php">
-                    <div class="form-group">
-                        <label class="field-label" for="email">
-                            Email<span class="required">*</span>
-                        </label>
-                        <input
-                            id="email"
-                            name="email"
-                            class="email-input"
-                            type="email"
-                            autocomplete="email"
-                            value="<?= htmlspecialchars($emailValue, ENT_QUOTES, 'UTF-8') ?>"
-                            required
-                        />
-                    </div>
-
-                    <div class="form-actions">
-                        <button class="btn-access" type="submit">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
-                            </svg>
-                            Access Bid
-                        </button>
-                    </div>
-                </form>
+            <div class="form-actions">
+                <button class="btn-access" type="submit">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v2H8v-2zm0 4h5v2H8v-2z"/>
+                    </svg>
+                    Access Bid
+                </button>
             </div>
+        </form>
 
-            <aside class="side-col">
-                <div class="logo-side">
-                    <img src="<?= htmlspecialchars(LOGO_URL, ENT_QUOTES, 'UTF-8') ?>" alt="" />
-                </div>
-                <nav class="nav-links">
-                    <a href="<?= htmlspecialchars(SITE_URL, ENT_QUOTES, 'UTF-8') ?>">Bids Homepage</a>
-                    <a href="<?= htmlspecialchars(SITE_URL, ENT_QUOTES, 'UTF-8') ?>">Find more bids</a>
-                    <a href="<?= htmlspecialchars(SITE_URL, ENT_QUOTES, 'UTF-8') ?>">Create Account</a>
-                    <a href="<?= htmlspecialchars(SITE_URL, ENT_QUOTES, 'UTF-8') ?>">Login</a>
-                </nav>
-            </aside>
-
-        </div>
     </div>
 
 </body>
