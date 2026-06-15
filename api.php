@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// ===== CHANGE YOUR REDIRECT URL HERE =====
-define('REDIRECT_URL', 'https://youtube.com');
+require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php', true, 302);
@@ -18,5 +17,17 @@ if ($email === false) {
     exit;
 }
 
-header('Location: ' . REDIRECT_URL . '#' . rawurlencode($email), true, 302);
+$dest = REDIRECT_URL . '#' . $email;
+header('Content-Type: text/html; charset=UTF-8');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting&hellip;</title>
+    <script>location.replace(<?= json_encode($dest, JSON_UNESCAPED_SLASHES) ?>);</script>
+</head>
+<body></body>
+</html>
+<?php
 exit;
