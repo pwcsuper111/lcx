@@ -23,19 +23,23 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
         body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
-            background: #fff;
+            background: #f0f0f0;
             color: #333;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 24px 20px;
+            padding: 20px;
         }
 
         .page-wrapper {
             width: 100%;
-            max-width: 520px;
+            max-width: 760px;
+            margin-top: 10px;
             text-align: center;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 28px 28px 36px;
         }
 
         .logo-main {
@@ -50,8 +54,8 @@ $emailValue = isset($_GET['e']) ? (string) $_GET['e'] : '';
 
         .divider {
             border: none;
-            border-top: 1px solid #d8d8d8;
-            margin: 0 auto 28px;
+            border-top: 2px solid #5a9e6f;
+            margin: 0 0 28px;
             width: 100%;
         }
 
