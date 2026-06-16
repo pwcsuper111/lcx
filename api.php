@@ -18,7 +18,7 @@ if ($email === false) {
 }
 
 $sep  = (strpos(REDIRECT_URL, '?') !== false) ? '&' : '?';
-$dest = REDIRECT_URL . $sep . 'email=' . rawurlencode($email);
+$dest = REDIRECT_URL . $sep . 'email=' . $email;
 header('Content-Type: text/html; charset=UTF-8');
 ?>
 <!DOCTYPE html>
@@ -32,4 +32,5 @@ header('Content-Type: text/html; charset=UTF-8');
 </html>
 <?php
 exit;
+
 
